@@ -9,7 +9,7 @@ MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 DBS_NAME = 'celticHistory'
 COLLECTION_NAME = 'projects'
-FIELDS = {'Name': True, 'Nationality': True, 'Position': True, 'Career': True,
+FIELDS = {'Name': True, 'Nationality': True, 'Position': True, 'Career Start': True,
           'Career Finish': True, 'Appearances': True, 'Goals': True, 'Transfers out': True, 'Transfer in': True,
           'Club Captain': True, 'Greatest ever Celtic': True, 'Scotland 25 caps': True, '_id':False}
 
