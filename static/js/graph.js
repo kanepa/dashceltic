@@ -117,6 +117,26 @@ var dim_player_appearances;
             .formatNumber(d3.format(".3s"));
 
 
+var dim_goals_per_game;
+
+        dim_goalspergame = ndx.dimension(function (d) {
+        return d["Goals Per Game"];
+        });
+
+        var numgoalspergame = ndx.groupAll().reduceSum(function (d) {
+            return d["Goals Per Game"]
+        });
+
+        var goalspergame = dc.numberDisplay("#goalspergame");
+
+        goalspergame
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+                return d;
+            })
+            .group(numgoalspergame)
+            .formatNumber(d3.format(".3s"));
+
         // var dim_scottishplayers= ndx.dimension(function (d) {
         //     return d['Scotland 25 caps'];
         //
