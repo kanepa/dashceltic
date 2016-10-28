@@ -74,32 +74,72 @@ function makeGraphs(error, celticJson) {
        .xAxisLabel("Career Length")
        .yAxis().ticks(4);
 
-    // var dim_scottishplayers= ndx.dimension(function (d) {
-    //     return d['Scotland 25 caps'];
-    //
-    // });
-    //
-    // var scottishcaps = dim_scottishplayers.group();
-    //
-    // var scotland = dc.barChart("#scottish");
-    //
-    // scotland
-    // .width(768)
-    // .height(480)
-    // .x(d3.scale.linear().domain([0,20]))
-    // .brushOn(false)
-    // .yAxisLabel("This is the Y Axis!")
-    // .dimension(dim_scottishplayers)
-    // .group(scottishcaps)
-    // .on('renderlet', function(chart) {
-    //     chart.selectAll('rect').on("click", function(d) {
-    //         console.log("click!", d);
-    //     });
-    // });
+
+        var dim_player_goals;
+
+        dim_player_goals = ndx.dimension(function (d) {
+        return d["Goals"];
+        });
+
+        var numPlayersByGoals = ndx.groupAll().reduceSum(function (d) {
+            return d["Goals"]
+        });
+
+        var goals = dc.numberDisplay("#Appearences");
+
+        goals
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+                return d;
+            })
+            .group(numPlayersByGoals)
+            .formatNumber(d3.format(".3s"));
 
 
+var dim_player_appearances;
 
+        dim_player_appearances = ndx.dimension(function (d) {
+        return d["Appearances"];
+        });
+
+        var numPlayersByAppearances = ndx.groupAll().reduceSum(function (d) {
+            return d["Appearances"]
+        });
+
+        var goals = dc.numberDisplay("#goals");
+
+        goals
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+                return d;
+            })
+            .group(numPlayersByAppearances)
+            .formatNumber(d3.format(".3s"));
+
+
+        // var dim_scottishplayers= ndx.dimension(function (d) {
+        //     return d['Scotland 25 caps'];
+        //
+        // });
+        //
+        // var scottishcaps = dim_scottishplayers.group();
+        //
+        // var scotland = dc.barChart("#scottish");
+        //
+        // scotland
+        // .width(768)
+        // .height(480)
+        // .x(d3.scale.linear().domain([0,20]))
+        // .brushOn(false)
+        // .yAxisLabel("This is the Y Axis!")
+        // .dimension(dim_scottishplayers)
+        // .group(scottishcaps)
+        // .on('renderlet', function(chart) {
+        //     chart.selectAll('rect').on("click", function(d) {
+        //         console.log("click!", d);
+        //     });
+        // });
 
 
     dc.renderAll();
-};
+    };
