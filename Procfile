@@ -1,1 +1,1 @@
-web: gunicorn celtic:app
+web: gunicorn celticdashboard:app
