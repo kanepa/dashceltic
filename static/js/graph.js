@@ -140,16 +140,18 @@ var dim_goals_per_game;
 
 
 
+
+
         var dim_player_transfer = ndx.dimension(function (d) {
-        return d['Transfers Out'];
+        return d['Transfer in'];
         });
 
         var numtransfersin = dim_player_transfer.group(); // done
 
-        var transfersin = dc.pieChart("#tranfersin");
+        var transfersin = dc.pieChart("#transfersin");
 
         transfersin
-             .height(200)
+            .height(200)
             .transitionDuration(500)
             .dimension(dim_player_transfer)
             .group(numtransfersin);
