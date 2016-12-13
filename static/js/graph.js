@@ -139,62 +139,22 @@ var dim_goals_per_game;
 
 
 
+        var resourceTypeDim = ndx.dimension(function (d) {
+            return d["Appearances"]
+             });
 
+            var numrangers = resourceTypeDim.group();
 
+            var resourceTypeChart = dc.rowChart("#transferin");
 
-        var dim_player_transfer = ndx.dimension(function (d) {
-        return d['Transfer in'];
-        });
+            resourceTypeChart
+                .width(300)
+                .height(250)
+                .dimension(resourceTypeDim)
+                .group(numrangers)
+                .xAxis().ticks(4);
 
-        var numtransfersin = dim_player_transfer.group(); // done
-
-        var transfersin = dc.pieChart("#transfersin");
-
-        transfersin
-            .height(200)
-            .transitionDuration(500)
-            .dimension(dim_player_transfer)
-            .group(numtransfersin);
-
-     var dim_player_position = ndx.dimension(function (d) {
-       return d['Position'];
-    });
-
-   var numPlayersByPosition = dim_player_position.group(); // done
-
-   var playerPositionChart = dc.pieChart("#transfersin");
-
-     playerPositionChart
-         .height(200)
-         .transitionDuration(500)
-         .dimension(dim_player_position)
-         .group(numPlayersByPosition);
-
-
-
-        // var dim_scottishplayers= ndx.dimension(function (d) {
-        //     return d['Scotland 25 caps'];
-        //
-        // });
-        //
-        // var scottishcaps = dim_scottishplayers.group();
-        //
-        // var scotland = dc.barChart("#scottish");
-        //
-        // scotland
-        // .width(768)
-        // .height(480)
-        // .x(d3.scale.linear().domain([0,20]))
-        // .brushOn(false)
-        // .yAxisLabel("This is the Y Axis!")
-        // .dimension(dim_scottishplayers)
-        // .group(scottishcaps)
-        // .on('renderlet', function(chart) {
-        //     chart.selectAll('rect').on("click", function(d) {
-        //         console.log("click!", d);
-        //     });
-        // });
 
 
     dc.renderAll();
-    };
+    }
