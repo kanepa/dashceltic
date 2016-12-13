@@ -137,6 +137,24 @@ var dim_goals_per_game;
             .group(numgoalspergame)
             .formatNumber(d3.format(".3s"));
 
+
+
+
+         var dim_player_transfer = ndx.dimension(function (d) {
+        return d['Transfer in'];
+        });
+
+        var numtransfersin = dim_player_transfer.group(); // done
+
+        var transfersin = dc.pieChart("#tranfersin");
+
+        transfersin
+             .height(200)
+            .transitionDuration(500)
+            .dimension(dim_player_transfer)
+            .group(numtransfersin);
+
+
         // var dim_scottishplayers= ndx.dimension(function (d) {
         //     return d['Scotland 25 caps'];
         //
