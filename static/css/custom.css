@@ -15,7 +15,7 @@
 }
 
 #total-projects {
-   background: #33CC99;
+   background: #009850;
    width: 200px;
    position: relative;
    height: 60px;
@@ -54,4 +54,8 @@
    padding-top: 4px;
    padding-bottom: 0px;
 
+}
+
+.joshua{
+   background-color: #009850;
 }
