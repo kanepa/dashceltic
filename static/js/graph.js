@@ -152,8 +152,8 @@ var dim_goals_per_game;
                 .height(250)
                 .dimension(resourceTypeDim)
                 .group(numrangers)
-                .xAxis().ticks(4);
-
+                .xAxis().ticks(4)
+                .elasticX(true);
 
 
     dc.renderAll();
