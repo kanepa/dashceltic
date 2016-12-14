@@ -10,6 +10,7 @@ function makeGraphs(error, celticJson) {
         p["Career Length"] = p["Career Finish"] - p["Career Start"];
         p["Goals Per Game"] = Math.round(p["Goals"]/p["Appearances"], 3);
 
+
         if (!p["Career Length"]) p["Career Length"] = 0;
         console.log(p["Career Length"]);
     });
@@ -152,7 +153,8 @@ var dim_goals_per_game;
                 .height(250)
                 .dimension(resourceTypeDim)
                 .group(numrangers)
-                .xAxis().ticks(4);
+                .xAxis().ticks(4)
+                .elasticX(true);
 
 
 
