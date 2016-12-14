@@ -140,7 +140,7 @@ var dim_goals_per_game;
 
 
         var resourceTypeDim = ndx.dimension(function (d) {
-            return d["Appearances"]
+            return d["Transfer in"]
              });
 
             var numrangers = resourceTypeDim.group();
