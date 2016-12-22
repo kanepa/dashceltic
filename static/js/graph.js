@@ -139,26 +139,24 @@ var dim_goals_per_game;
 
 
 
+
+
         var resourceTypeDim = ndx.dimension(function (d) {
             return d["Transfer in"]
              });
 
             var numrangers = resourceTypeDim.group();
 
-            var resourceTypeChart = dc.pieChart("#transferin");
+            var resourceTypeChart = dc.rowChart("#transferin");
 
             resourceTypeChart
-                .height(200)
-                .transitionDuration(500)
+
+
+                .width(300)
+                .height(250)
                 .dimension(resourceTypeDim)
-                .group(numrangers);
-
-
-                // .width(300)
-                // .height(250)
-                // .dimension(resourceTypeDim)
-                // .group(numrangers)
-                // .xAxis().ticks(4)
+                .group(numrangers)
+                .xAxis().ticks(4)
 
 
 
