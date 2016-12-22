@@ -150,8 +150,8 @@ var dim_goals_per_game;
             resourceTypeChart
                 .height(200)
                 .transitionDuration(500)
-                .dimension(dim_player_position)
-                .group(numPlayersByPosition);
+                .dimension(resourceTypeDim)
+                .group(numrangers);
 
 
                 // .width(300)
