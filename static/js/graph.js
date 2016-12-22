@@ -145,14 +145,20 @@ var dim_goals_per_game;
 
             var numrangers = resourceTypeDim.group();
 
-            var resourceTypeChart = dc.rowChart("#transferin");
+            var resourceTypeChart = dc.pieChart("#transferin");
 
             resourceTypeChart
-                .width(300)
-                .height(250)
-                .dimension(resourceTypeDim)
-                .group(numrangers)
-                .xAxis().ticks(4)
+                .height(200)
+                .transitionDuration(500)
+                .dimension(dim_player_position)
+                .group(numPlayersByPosition);
+
+
+                // .width(300)
+                // .height(250)
+                // .dimension(resourceTypeDim)
+                // .group(numrangers)
+                // .xAxis().ticks(4)
 
 
 
